@@ -26,20 +26,12 @@ on:
         default: 'x86_64'
         type: choice
         options:
-          - 'armsr_rootfs_tar_gz'
-          - 'asus_rt-ac42u'
-          - 'd-team_newifi-d2'
-          - 'p2w_r619ac-128m'
-          - 'phicomm_n1'
-          - 'phicomm_k2p'
-          - 'phicomm_k3'
-          - 'x86_32'
           - 'x86_64'
-          - 'xiaoyu_xy-c5'
+#         - 'x86_32'
       INFORMATION_NOTICE:
         description: 'Telegram或pushplus信息通知'
         required: true
-        default: '关闭'
+        default: 'Pushplus'
         type: choice
         options:
           - '关闭'
@@ -66,7 +58,7 @@ on:
       UPLOAD_RELEASE:
         description: '发布固件到 Github Releases'
         required: false
-        default: 'false'
+        default: 'true'
         type: boolean
       CACHEWRTBUILD_SWITCH:
         description: '缓存加速编译'
@@ -82,8 +74,8 @@ on:
 
 # 如若启动定时编译的话,配置文件是设置对应文件夹内的settings.ini文件
 # 定时触发开启开始编译(把下面两个#去掉开启,时间设置请看定时开启编译说明)
-#  schedule:
-#   - cron: 35 18 * * *
+  schedule:
+   - cron: 35 18 * * *
 
 env:
   GIT_REPOSITORY: ${{github.repository}}
